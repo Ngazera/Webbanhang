@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_user.cshtml";
+}
+@section style{
+    <style>
+        .wrapper {
+            margin-left: 250px;
+            display: flex;
+            height: 450px;
+            width: 1000px;
+            margin-left:250px;
+            margin-top:-30px;
+            border-radius: 7px 7px 7px 7px;
+            /* VIA CSS MATIC https://goo.gl/cIbnS */
+            -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+        }
+        .product-info{
+            margin-left:100px;
+            margin-top:50px;
+        }
+        .Description{
+            margin-top:50px;
+        }
+        .product-img{
+            margin-top:15px;
+        }
+        .add {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .addcart {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            background-color: #e47084;
+            padding-top: 10px;
+            margin-top:30px;
+        }
+    </style>
+    }
+        <div class="wrapper" >
+        <div class="product-img" >
+        <img src="http://bit.ly/2tMBBTd" height="420" width="327" >
+        </div >
+        <div class="product-info" >
+        <div class="product-text" >
+        <h1 > Harvest Vase</h1 >
+        <h2 > by studio and friends</h2 >
+        <p > Harvest Vases are a reinterpretation<br > of peeled fruits and vegetables as<br > functional objects. The surfaces<br > appear to be sliced and pulled aside, <br > allowing room for growth. </p >
+        </div >
+        <div>
+            <p> <span> 78</span> $</p>
+            </div>
+                <div class="addcart">
+                    <a class="add" @*href="@Url.Action("thu", new { ProductId = product.productId })"*@> Thêm Vào Giỏ Hàng </a>
+                </div>
+
+            </div>
+        </div>
+      
+        <div class="Description">
+            <div class="wrapper">
+                <p style="font-size:50px;font-weight:bold;margin-top:5px;margin-left:10px;">Mô Tả Sản Phẩm</p>
+            </div>
+            </div>

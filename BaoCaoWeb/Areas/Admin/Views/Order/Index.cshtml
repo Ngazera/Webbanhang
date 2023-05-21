@@ -1,0 +1,97 @@
+﻿@model IEnumerable<BaoCaoWeb.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section style{
+    <style>
+        .danhmuc {
+            padding-left: 50px;
+        }
+    </style>
+
+
+}
+    <div class="danhmuc">
+        <h2>Danh Sách Đơn Hàng</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.productName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_order)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.total)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product.productName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        <img src="@item.image" width="100px" height="100px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date_order)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.total)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.productName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Xoá", "Xoa", new { id = item.id })
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

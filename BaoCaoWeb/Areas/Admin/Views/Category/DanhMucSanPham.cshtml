@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BaoCaoWeb.Models.Category>
+
+@{
+    ViewBag.Title = "DanhMucSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section style{
+    <style>
+        .danhmuc {
+           padding-left:50px;
+        }
+    </style>
+    
+
+}
+    <div class="danhmuc">
+
+        <h2>Danh Sách Danh Mục Sản Phẩm</h2>
+
+        <p>
+            @Html.ActionLink("Thêm Mới", "ThemMoi", "Category")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.catId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.catName)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.catId)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.catName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "CapNhat", new { id = item.catId }) |
+
+                        @Html.ActionLink("Xoá", "Xoa", new { id = item.catId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

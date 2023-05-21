@@ -1,0 +1,92 @@
+﻿@model IEnumerable<BaoCaoWeb.Models.Product>
+
+@{
+    ViewBag.Title = "ProductCategory";
+    Layout = "~/Views/Shared/Layout_user.cshtml";
+}
+
+@section style{
+    <style>
+        .product1 {
+            margin-left: 250px
+        }
+
+        .product_in41 {
+            width: 210px;
+            border: 5px solid white;
+            box-shadow: 1px 1px 5px 5px #cccccc;
+            margin: 20px;
+            height:420px;
+        }
+
+        .product_img1 {
+            width: 200px;
+            height: 260px;
+        }
+
+        .txt_buy1 {
+            width: 200px;
+            height: 35px;
+            background-color: #e47084;
+            color: white;
+            padding-top: 10px;
+            text-decoration: none
+        }
+
+        .a4 {
+            text-decoration: none
+        }
+
+        .product_price1 {
+            color: gray
+        }
+
+        .product1 {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(auto-fit, 250px);
+            grid-template-rows: repeat(auto-fit, 430px);
+        }
+
+        /*.slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin-left: 250px;
+            margin-top: -25px;
+        }*/
+        .ProductCategory{
+            margin-top:-20px;
+            margin-bottom:40px;
+        }
+    </style>
+
+}
+
+    <div class="ProductCategory">
+        <div class="product1">
+
+            @foreach (var product in Model)
+            {
+                <div class="item  col-xs-4 col-lg-4">
+                    <div class="product_in41">
+                        <center>
+                            <a class="a4" href="#">
+                                <img class="product_img1" src="@product.image" />
+                            </a>
+                            <div class="txt_buy1">
+                                <a class="txt_buy1" href="@Url.Action("Chitietsanpham", "Product",new { Id = product.productId })"> Mua ngay </a>
+                            </div>
+
+
+                            <p class="product_price1">@product.productName </p>
+                            <p class="product_price1">Giá Bán: @string.Format("{0:#,###}", product.price) VND</p>
+                        </center>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+

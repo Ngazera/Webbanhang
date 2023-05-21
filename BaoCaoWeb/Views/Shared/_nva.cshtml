@@ -1,0 +1,15 @@
+﻿
+
+<div class="nav2">
+    <p class="adexuat">
+           Đề xuất sản phẩm
+    </p>
+   
+    <ul class="ul1">
+        @foreach (var category in ViewBag.category)
+        {
+            <li><a class="a2" href="@Url.Action("ProductCategory", "ProductCategory",new { ID = category.catId })">  @category.catName</a></li>
+
+        }
+    </ul>
+</div>

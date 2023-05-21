@@ -1,0 +1,212 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .aannashop {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 80px;
+            font-weight: bold;
+            font-style: italic;
+            float: left;
+            padding-bottom:15px;
+            padding-right: 20px;
+            padding-left:-10px
+        }
+        .abox-button {
+            height: 35px;
+            width: 100px;
+            background-color: #e47084;
+            border-color:antiquewhite;
+            border-radius:5px;
+        }
+        .aa3 {
+            color: white;
+            text-decoration: none;
+            font-family: sans-serif;
+    
+        }
+        .adexuat {
+            font-size: 30px;
+            border-bottom: 2px solid #da6b6b;
+           margin-top: 7px;
+           margin-bottom:-5px;
+           padding-left:15px;
+           
+           font-family: 'Times New Roman';
+        }
+    </style>
+    <title>@ViewBag.title</title>
+    <script src="~/Scripts/jquery-3.6.1.js"> </script>
+    <script src="~/Scripts/jquery.validate.js"> </script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="~/asset/jquery-3.6.1.min.js"></script>
+    <link href="~/asset/home.css" rel="stylesheet" />
+    <link href="~/asset/slider.css" rel="stylesheet" />
+    @RenderSection("style", false)
+    @RenderSection("style1", false)
+    @RenderSection("styleProduct", false)
+</head>
+<body>
+
+
+    <header>
+
+        <div class="container">
+            <a class="b" href="@Url.Action("Index", "Home")">
+
+                <span class="aannashop">AnnaShop</span>
+            </a>
+        </div>
+
+        <div class="container">
+            <a class="a0" href="voucher.html">
+                <img class="icon" src="https://theme.hstatic.net/1000173566/1000591201/14/buyxgety_img.png?v=1128" />
+                <div>Voucher<br /> Quà Tặng</div>
+            </a>
+        </div>
+
+        <div class="container ">
+            <a class="a0" href="@Url.Action("Index","cart")">
+                <img class="icon" src="https://bizweb.dktcdn.net/100/344/969/themes/705911/assets/carts.svg?1637236245874" />
+                @*@Html.Action("BagCart","Cart")*@
+                <div> Giỏ hàng<br />của bạn</div>
+            </a>
+        </div>
+
+        <div class="container">
+            <button class=" abox-button"><a href="@Url.Action("DangNhap","Home")" class="aa3"> Đăng nhập </a> </button>
+            <button class=" abox-button"><a href="@Url.Action("Register","Home")" class="aa3"> Đăng ký</a></button>
+            <img id="sdt" src="https://www.pngkit.com/png/full/22-220966_phone-icon-png-red-icon-in-thoi-png.png" />
+            <div class="sdt">0915.554.940 <br />01666.22.5555</div>
+            <p>
+                <div>
+                    <input class="key" placeholder="Tìm kiếm" />
+                </div>
+                <div>
+                    <a href="#">
+                        <img id="key" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Search_Icon.svg" />
+                    </a>
+                </div>
+            </p>
+        </div>
+
+    </header>
+
+    <nav class="nav1">
+        <a id="a1"> </a> |
+
+        <a class="a1" href="~/Home/Index">  HOME    </a> |
+        <a class="a1" href="@Url.Action("Introduce","Product")">GIỚI THIỆU</a> |
+        <a class="a1" href="@Url.Action("NewProduct","Product")">SẢN PHẨM MỚI</a> |
+        @*<a class="a1" href="noibat.html">NỔI BẬT</a> |
+            <a class="a1" href="khuyenmai.html">KHUYẾN MẠI</a>|*@
+        <a class="a1" href="@Url.Action("Chitietsanpham","Product")">CHI TIẾT SẢN PHẨM</a>|
+        <a class="a1" href="@Url.Action("Index","cart")">CỔNG THANH TOÁN</a>
+    </nav>
+   
+    <div class="content">
+        @{
+            Html.RenderAction("RenderMenu", "Home");
+        }
+        @*<div class="nav2">
+            <p class="dexuat">
+                Đề xuất sản phẩm
+            </p>
+            @model IEnumerable<BaoCaoWeb.Models.Category>
+            <ul class="ul1">
+                @foreach (var category in Model)
+                {
+                    <li><a class="a2" href="@Url.Action("ProductCategory", "category",new { ID = category.catId })">  @category.catName</a></li>
+
+                }
+            </ul>
+        </div>*@
+        <div class="nav3">
+            @RenderBody()
+        </div>
+    </div>
+    <footer>
+        <div class="div_of_footer">
+            <h2 clas="h2_of_footer">
+                Đồng hành cùng chúng tôi tại:
+            </h2>
+            <p class="p_of_footer">
+                <a class="a3" href="#">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png" />
+                    Facebook
+                </a>
+            </p>
+            <p class="p_of_footer">
+                <a class="a3" href="#">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png" />
+                    Instagram
+                </a>
+            </p>
+        </div>
+        <div class="div_of_footer">
+            <h2 class="h2_of_footer">
+                Thông tin trụ sở
+            </h2>
+            <p class="p_of_footer">
+                Q.7-TP.Hồ Chí Minh
+            </p>
+            <p class="p_of_footer">
+                Thành lập năm 2012
+            </p>
+            <p class="p_of_footer">
+                Hotline:0915156789-0220302213
+            </p>
+            <p class="p_of_footer">
+                Chuyên kinh doanh hàng Việt Nam chất lượng cao
+            </p>
+        </div>
+
+        <div class="div_of_footer">
+            <h2 class="h2_of_footer">
+                Đối tác lâu dài:
+            </h2>
+            <p class="p_of_footer">
+                Công Ty Cổ Phần May Đồng Nai - Donagamex
+            </p>
+            <p class="p_of_footer">
+                Công Ty Cổ Phần Dệt 10/10
+            </p>
+            <p class="p_of_footer">
+                Công Ty Cổ Phần May Sông Hồng
+
+            </p>
+            <p class="p_of_footer">
+                Tổng Công Ty Cổ Phần May Nhà Bè - NBC
+
+            </p>
+        </div>
+
+        <div class="div_of_footer">
+            <h2 class="h2_of_footer">
+                Chăm sóc khách hàng
+            </h2>
+            <p class="p_of_footer">
+                Cách thanh toán
+            </p>
+            <p class="p_of_footer">
+                Vấn đề trả hàng
+            </p>
+            <p class="p_of_footer">
+                Tư vấn phối đồ
+
+            </p>
+            <p class="p_of_footer">
+                Ghi nhận đóng góp từ khách hàng
+
+            </p>
+        </div>
+        @*<script src="~/asset/slide.js"></script>
+            <script src="~/asset/key.js"></script>*@
+        @RenderSection("js", false);
+
+    </footer>
+
+</body>
+</html>

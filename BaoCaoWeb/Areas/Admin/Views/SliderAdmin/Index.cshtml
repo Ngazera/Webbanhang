@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BaoCaoWeb.Models.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section style{
+    <style>
+        .danhmuc {
+            padding-left: 50px;
+        }
+    </style>
+
+
+}
+<div class="danhmuc">
+    <h2>Danh Sách Danh Mục Slider</h2>
+  
+
+    <p>
+        @Html.ActionLink("Thêm Mới", "ThemMoi")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sliderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sliderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.slider_image)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sliderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sliderName)
+            </td>
+            <td>
+                <img src="@item.slider_image" width="100px" height="100px" />
+
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "CapNhat", new { id = item.sliderId }) |
+
+                @Html.ActionLink("Xoá", "Xoa", new { id = item.sliderId })
+            </td>
+        </tr>
+        }
+
+    </table>
+    </div>

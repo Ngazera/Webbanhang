@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+    <meta name="viewport" content="width=device-width" />
+    <title>DatHang</title>
+    <style>
+        body{
+           
+            background-color:antiquewhite;
+            align-items:center;
+            justify-content:center;
+        }
+        .thanhtoan {
+      margin-left:50px;
+      padding-top:50px;
+          font-size:40px
+        } 
+        .hop{
+            margin-top:200px;
+            margin-left:450px;
+            height:300px;
+            width:500px;
+            background-color:antiquewhite
+        }
+        .thanhtoans {
+            margin-left: 90px;
+            margin-top: 20px;
+            font-size: 40px
+        } 
+
+    </style>
+</head>
+<body>
+    <div class="hop"> 
+        <p class="thanhtoan">Thanh Toán Thành Công</p>
+        <a class="thanhtoans" href="@Url.Action("Index","Home")"> Tiếp Tục Mua Hàng </a>
+    </div>
+</body>
+</html>

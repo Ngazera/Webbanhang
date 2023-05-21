@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BaoCaoWeb.Models.Slider>
+<div class="slideshow-container">
+    @foreach (var slider in Model)
+    {
+        <div class="mySlides fade">
+         
+            <img src="@slider.slider_image" style="width:1000px; height:300px ;">
+           
+        </div>
+    }
+
+
+</div>
+<br>
+<div style="margin-left:720px">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+@*<!-- Thẻ Chứa Slideshow -->
+    <div class="slideshow-container">
+        <!-- Kết hợp hình ảnh và nội dung cho mội phần tử trong slideshow-->
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="@Model.Slider.slider_image" style="width:1000px; height:300px">
+            <div class="text">Nội Dung 1</div>
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="https://thuvienmuasam.com/uploads/default/original/2X/3/38de41c9d34ba5eb0d2f4fd2cf2ffad212ae43bc.jpeg?fbclid=IwAR06dY8HWI6WF78bhlOIOtvBwg3GoJveKpcOWw3epDIQ0BdxVGz_31caxEw" style="width:1000px; height:300px">
+            <div class="text">Nội Dung 2</div>
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="https://img3.thuthuatphanmem.vn/uploads/2019/10/14/anh-lookbook-thoi-trang_113854100.jpg" style="width:1000px; height:300px ;">
+            <div class="text">Nội Dung 3</div>
+        </div>
+        <!-- Nút điều khiển mũi tên-->
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br>
+    <!-- Nút tròn điều khiển slideshow-->
+    <div style="margin-left:720px">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>*@

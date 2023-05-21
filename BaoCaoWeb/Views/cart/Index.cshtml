@@ -1,0 +1,96 @@
+﻿@model IEnumerable<BaoCaoWeb.Models.Cart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_user.cshtml";
+}
+
+@section style1{
+    <style>
+        .giohang {
+            width: 1000px;
+            margin-left: 70px;
+        }
+    </style>
+
+
+}
+    <div class="giohang">
+        @if (Model == null)
+        {
+            <p class="text-info text-center">
+                Giỏ hàng của bạn rỗng!
+            </p>
+        }
+        else
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.productName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.quantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.money)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.productName)
+                        </td>
+                        <td></td>
+                        <td>
+                            <img src="@item.image" width="170" height="160" />
+
+                        </td>
+
+                        <td>
+                            <form action="@Url.Action("UpdateAmount", "cart",new { ProductId = item.productId}))" method="get">
+                                <input type="hidden" name="productid" value="@item.productId" />
+                                <input type="number" min="1" step="1" name="newamount" value="@item.quantity" />
+                                <button type="submit" class="btn btn-primary btn-sm"> cập nhật </button>
+                            </form>
+                        </td>
+
+
+                        <td> @item.price VNĐ </td>
+
+
+                        <td> <a href="@Url.Action("RemoveItem", "cart",new { ProductId = item.productId})" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">Xóa</a> </td>
+
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <td class="text-right">Tổng số lượng:</td>
+                    <td> @Model.Sum(m => m.quantity) </td>
+                    <td class="text-right">Tổng thành tiền:</td>
+                    <td>@Model.Sum(m => m.money).ToString("#,##0").Replace(',', '.') VNĐ </td>
+                </tr>
+
+                <tr style="font-weight: bold; color:blue; text-align:right">
+                    <td colspan="9" align="center">
+                        <a href="@Url.Action("DatHang", "cart")" onclick="return confirm('Bạn có chắc muốn Thanh Toán?');">Thanh Toán</a>
+                        @*@Html.ActionLink("Thanh Toán", "DatHang", "cart", onclick = "return confirm('Bạn có chắc muốn xóa sản phẩm này?')")*@
+                    </td>
+                </tr>
+            </table>
+           
+               
+                }
+        </div>
+
+
+
+
